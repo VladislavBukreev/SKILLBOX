@@ -1,0 +1,25 @@
+/*Задача 2. Банкомат.
+
+Пользователи банкомата хотят снимать деньги. Но банкомат умеет выдавать только купюры по 100 рублей, а максимальная сумма снятия — 100 000 рублей.
+
+Напишите программу, которая проверяет допустимость суммы средств, введенной пользователем.
+
+*/
+#include <iostream>
+using namespace std;
+
+int main(){
+  int needCash, banknoteLimit, maxSumLimit, denominationBoanknotes, totalMoney;
+  maxSumLimit = 100000;
+  denominationBoanknotes = 500;
+  cout << "**************************************************\n      Добрый день! Вас приветствует Банкомат!\n **************************************************\n Введите нужную сумму для снятия: "; cin >> needCash; cout << 
+  "**************************************************\n";
+  
+  banknoteLimit = maxSumLimit / denominationBoanknotes;
+  totalMoney = denominationBoanknotes * maxSumLimit;
+  if(needCash / denominationBoanknotes <= banknoteLimit )
+    cout << "Выдача наличных .... ";
+    else if (needCash <= 0) cout << "Ошибка, введите корректную сумму";
+  else cout << "Извините денег не хватает, максимально возможная сумма к выдаче : " << totalMoney;
+
+}

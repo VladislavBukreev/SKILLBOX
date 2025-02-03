@@ -1,0 +1,8 @@
+#include <iostream>
+int main() {
+  int productPrice = 100;
+  int priceDelivery = 5;
+  int sale = 3;
+  int result = productPrice + priceDelivery - sale;
+  std::cout << "Стоимость товара равна: " << result;
+}
