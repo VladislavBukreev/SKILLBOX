@@ -101,5 +101,6 @@
     "stdexcept": "cpp",
     "streambuf": "cpp",
     "typeinfo": "cpp"
-  }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell"
 }
