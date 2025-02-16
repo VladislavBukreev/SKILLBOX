@@ -1,14 +1,19 @@
 #include <iostream>
-using namespace std;
-int main(){
-    string name;
-    cout << "Привет! Как тебя зовут? \n";
-    cin >> name;
-    cout << name << ", Купи слона! \n ";
-    while (name == name)
-    {
-        cin >> name;
-        cout << "ВВсе говорят‚ " << name << ", А ты купи слона! ";
+
+int main() {
+    int number;
+    std::cout << "Введите положительное число:\n";
+    std::cin >> number;
+
+    int current = 2;
+    while (current < number) {
+        if (number % current == 0) break;
+        current += 1;
     }
-    system("pause");
+
+    if (current == number) {
+        std::cout << "Это простое число";
+    } else {
+        std::cout << "Это не простое число";
+    }
 }
