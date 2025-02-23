@@ -14,8 +14,9 @@ int main(){
    
    while(number != 0){
     sum += number % 10;
-    number / 10;
+    number = number / 10;
     } 
+
 
     if (sum == 42)
         cout << "Ввод корректен";
