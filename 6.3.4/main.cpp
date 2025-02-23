@@ -17,7 +17,6 @@ int main(){
         x = num % 10;
         cout << x;
         num /= 10;
-
     }
     
 
