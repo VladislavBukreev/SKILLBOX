@@ -29,24 +29,33 @@
 using namespace std;
 int main(){
     cout << "Введите размер вклада: ";
-    int deposit, year , profit, procent, result;
+    int deposit, year , profit, procent, result, result2;
     cin >> deposit;
     cout << "Введите процентную ставку: ";
     cin >> procent;
     cout << "Введите желаемую сумму: ";
     cin >> profit;
+    bool ok = (deposit > 0 && profit > 0 && procent > 0 ) && (deposit < profit);
+    
+    if(!ok) cout << "Ошибка, введены не верные данные! ";
+    else{
+        result = 0;
+        result2 = 0;
+        year = 1;
+   
+        result = deposit + (procent * deposit / 100); 
+    
+        while(result2 < profit){
+            result2 = result + (procent * result / 100);
+            if (result2 < result) {  
+                cout << "Ошибка: произошло переполнение!";
+                break;
+            }  
+            result = result2;
+            ++year;
+        }
 
-    result = 0;
-    year = 0;
-   // result = deposit + (procent * deposit / 100);
+        cout << "Для достижения вашей цели вам потребуется " << year << " Лет.\n";
 
-
-
-    while(result < profit){
-        result += deposit + (procent * deposit / 100);
-        ++year;
-        cout << "result = " << result << "\n";
     }
-    cout << "////////////////////////" << year;
-
 }
