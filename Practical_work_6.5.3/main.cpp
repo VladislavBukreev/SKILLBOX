@@ -25,6 +25,7 @@ int main(){
     bool trueCredit = (credit > 0);
     if (!trueCredit){
         cout << "!!!!!!!!!!!!!!!!!!!!!!!\n Не веррный ввод долга! \n!!!!!!!!!!!!!!!!!!!!!!!\n";
+        return 1;
     }
     else {
         credit = -credit;

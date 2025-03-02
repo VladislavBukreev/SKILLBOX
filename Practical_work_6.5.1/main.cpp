@@ -20,7 +20,9 @@ int main(){
     int clock, i;
     cin >> clock;
     i = 0;
-    if(clock > 0 && clock < 12)
+    if (clock == 0) clock = 12;
+    if(clock > 0 && clock < 24)
+
         while(i != clock){
             cout << "Ку-ку!\n";
             ++i;

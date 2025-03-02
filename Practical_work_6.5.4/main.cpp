@@ -40,7 +40,7 @@ int main(){
             leftDigit = sum;
         }
     }
-    if (i > 6 || i < 6) {
+    if (i != 6) {
         cout << "введено не верное число!"; return 0;
     }
     if(rightDigit == leftDigit) cout << "Ваш Билет счастливый!";
