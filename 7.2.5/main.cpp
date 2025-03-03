@@ -19,6 +19,6 @@ int main() {
     for (i = 0; answer != trueAnswer ; i++) { 
         cout << "Вы выполнили задание? ";
         getline(cin, answer);
-    }cd
+    }
     cout << "ОК, Ну почему тебя нужно спрашивать " << i << " раз?";
 }
