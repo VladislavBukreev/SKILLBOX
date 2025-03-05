@@ -14,7 +14,7 @@ int main(){
     cin >> square;
 
     if(square <= 1000000){
-        int x = 1;
+        int x = 1;                           // 
         int result = 1;
         while(result < square){
             result = x*x;
