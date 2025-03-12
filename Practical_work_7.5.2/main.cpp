@@ -33,41 +33,64 @@
 Количество ингредиентов не становится отрицательным.
 Программа не выводит отчёт, если количества ингредиентов хватает хотя бы на один из напитков.
 Если ингредиентов не хватает для приготовления любого из напитков, программа должна вывести отчёт.*/
+
+// ************ ДЛЯ КУРАТОРА: ************
+/*Стоит сказать что здесь я решил построить программу принципиально через bool и вложенный цикл. Потому что изначально именно так видил решение,
+и начал писать. Переписывать не хотел, поэтому очень важно узнать ваше мнение, наверняка код "грязный" .
+Так же по реккомендации я использовал именно while.
+*/
 #include <iostream>
 using namespace std;
 int main(){
     int water, milk;
-    cout << "Введите количество воды в мл; ";
+    cout << "Введите количество воды в мл: ";
     cin >> water;
     cout << "Введите количество молока в мл: ";
     cin >> milk;
-    bool latte = (water >= 30 && milk >=270);
-    bool americano = (water >= 300);
-
-
+    int coffee = 0, countAmericano = 0, countLatte = 0;
+    bool latte = (water >= 30 && milk >= 270);
+    bool americano = (water >= 300);  
+    if(!latte && !americano) {
+        cout << "Не дури меня, сегодня без кофе \n";
+        return 0;
+    }
+    
     while(true){
-        int coffee = 0, countAmericano = 0, countLatte = 0;
-        cout << "Выберите напиток (1 — американо, 2 — латте): ";
-        cin >> coffee;
-        while(americano || latte){        
-            if(coffee == 1){
-                if(americano){
-                    ++countAmericano;
-                    cout << "Ваш напиток готов \n";
-                    break;
+        latte = (water >= 30 && milk >= 270);
+        americano = (water >= 300); 
+        
+        while(americano || latte){       
+            cout << "Выберите напиток (1 — американо, 2 — латте): ";
+            cin >> coffee; 
+            if(coffee > 2 || coffee < 1 ){
+                cout << "Ошибка ввода \n";
+                break;
                 }
-                else if(coffee != 1 || coffee != 2){
-                    cout << "Ошибка ввода \n";
-                    break;
+            else if(coffee == 1 && americano){
+                ++countAmericano;
+                cout << "Ваш напиток готов \n";
+                water -= 300;
+                break;
                 }
-                else {
-                    cout << "Не хватает воды \n";
-                    break;
-                }
-
+            else if(coffee == 2 && latte){
+                ++countLatte;
+                cout << "Ваш напиток готов \n";
+                water -= 30;
+                milk -= 270;
             }
+            else{
+                if(!latte) cout << "Не хватает молока \n";
+                if(!americano) cout << "Не хватает воды \n" ;
+            }
+            latte = (water >= 30 && milk >= 270);
+            americano = (water >= 300); 
         }
+        if(!latte && !americano){
+            cout << "***Отчёт*** \n Ингредиентов осталось: \n Вода: " << water << "\n Молоко: " << milk << "\n";
+            cout << "Кружек американо приготовлено: " << countAmericano << "\n Кружек латте приготовлено: " << countLatte;
+            break;
+        }    
     }
 }
-   // cout << "***Отчёт*** \n Ингредиентов осталось: \n Вода: " << water << "\n Молоко: " << milk;
-   // cout << "Кружек американо приготовлено: " << countAmericano << "\n Кружек латте приготовлено: " << countLatte;
+
+
