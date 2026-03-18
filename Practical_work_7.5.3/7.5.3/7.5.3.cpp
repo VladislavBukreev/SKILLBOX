@@ -40,37 +40,45 @@ int main() {
 	int y = 10;
 
 	while (true) {
+
 		cout << "Марсоход находится на позиции x = " << x << " , y = " << y << "\n";
-		cout << "Введите направление -> \n";
-		cin >> input;
-		bool proverka = (input == "W" || input == "S" || input == "D" || input == "A");
-		bool proverka2 = (x < 16 && x > 0) && (y > 1 && y < 21);
+
+		
 		while (true) {
+			cout << "Введите направление -> \n";
+			cin >> input;
+			bool proverka2 = (x <= 15 && x >= 1) && (y >= 1 && y <= 20);
+			bool proverka = (input == "W" || input == "S" || input == "D" || input == "A");
+
 			if (!proverka) {
 				cout << "Неверный ввод! Введите W, S, D или A \n";
 				break;
 			}
-			else if (input == "W") {
+			else if (input == "W" && y > 1 ) {
 				y--;
 				break;
 			}
-			else if (input == "S") {
+			else if (input == "S" && y < 20) {
 				y++;
 				break;
 			}
-			else if (input == "D") {
+			else if (input == "D" && x < 15) {
 				x++;
 				break;
 			}
-			else if (input == "A") {
+			else if (input == "A" && x > 1 ) {
 				x--;
 				break;
 			}
-			else if (!proverka2) {
-				cout << " Вы у стены, введите другое направление \n";
+			else {
+				cout << " Внимание вы у стены, введите другое направление \n";
 				break;
 			}
 		}
 	}
-
 }
+
+			/*else if (!proverka2) {
+				
+			}
+			*/
