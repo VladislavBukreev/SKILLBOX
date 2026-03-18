@@ -47,7 +47,6 @@ int main() {
 		while (true) {
 			cout << "Введите направление -> \n";
 			cin >> input;
-			bool proverka2 = (x <= 15 && x >= 1) && (y >= 1 && y <= 20);
 			bool proverka = (input == "W" || input == "S" || input == "D" || input == "A");
 
 			if (!proverka) {
@@ -76,9 +75,3 @@ int main() {
 			}
 		}
 	}
-}
-
-			/*else if (!proverka2) {
-				
-			}
-			*/
