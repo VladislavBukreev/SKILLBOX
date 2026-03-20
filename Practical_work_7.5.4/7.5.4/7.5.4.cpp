@@ -31,7 +31,12 @@ int main() {
 
 	for (int row = 0; row < width; row++) {
 		for (int col = 0; col < width; col++){
-
+			if (row == 1 || row == width) {
+				cout << "|";
+			}
+			else if ((row > 1 && row < width) && ) {
+				cou
+			}
 		}
 	}
 }
