@@ -17,26 +17,33 @@ std::cin >> width >> height;
 Рамка рисуется в соответствии с заданными размерами и с помощью условных конструкций и циклов.
 
 */
-
 #include <iostream>
 #include <windows.h>
 using namespace std;
+
 int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
 	int width, height;
-	cout << "Ввеите ширину и длину -> ";
+	cout << "Введите ширину и длину -> ";
 	cin >> width >> height;
 
-	for (int row = 0; row < width; row++) {
-		for (int col = 0; col < width; col++){
-			if (row == 1 || row == width) {
+	for (int row = 1; row <= height; row++) {
+		for (int col = 1; col <= width; col++) {
+			if ((row == 1 || row == height) && (col == 1 || col == width)) {
 				cout << "|";
 			}
-			else if ((row > 1 && row < width) && ) {
-				cou
+			else if (row == 1 || row == height) {
+				cout << "-";
+			}
+			else if (col == 1 || col == width) {
+				cout << "|";
+			}
+			else {
+				cout << " ";
 			}
 		}
+		cout << "\n";
 	}
 }
