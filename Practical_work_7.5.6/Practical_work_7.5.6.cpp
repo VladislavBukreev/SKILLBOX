@@ -20,5 +20,28 @@ int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
+	cout << "Введите общую длину контитула и кол-во вопросительных знаков -> ";
+	int lenght, exclamation, result, resultRight;
+	cin >> lenght >> exclamation;
+	
+	result = (lenght - exclamation) / 2;
+	resultRight = result;
+	if ((lenght - exclamation) % 2 != 0)
+		resultRight++;
 
+	for (int i = 0; i < lenght; i++) {
+		if (i < result) {
+			cout << "~";
+		}
+		else if (i == result) {
+			for (int j = 0; j < exclamation; j++) {
+				cout << "!";
+			}
+		}
+		else if (i == result + 1){
+			for (int k = 0; k < resultRight; k++) {
+				cout << "~";
+			}
+		}
+	}		 
 }
